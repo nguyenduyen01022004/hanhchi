@@ -1,0 +1,130 @@
+```html
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>Happy Women's Day</title>
+
+<style>
+
+body{
+margin:0;
+overflow:hidden;
+background:linear-gradient(#fff0f5,#ffd6e7);
+font-family:'Segoe UI',sans-serif;
+text-align:center;
+}
+
+/* chữ */
+.message{
+position:absolute;
+top:40%;
+left:50%;
+transform:translate(-50%,-50%);
+font-size:42px;
+color:#ff2e7a;
+font-weight:bold;
+text-shadow:0 0 10px pink;
+}
+
+/* tim lớn */
+.bigheart{
+font-size:150px;
+position:absolute;
+top:55%;
+left:50%;
+transform:translate(-50%,-50%);
+animation:beat 1s infinite;
+}
+
+/* tim đập */
+@keyframes beat{
+0%{transform:translate(-50%,-50%) scale(1);}
+50%{transform:translate(-50%,-50%) scale(1.3);}
+100%{transform:translate(-50%,-50%) scale(1);}
+}
+
+/* tim rơi */
+.heart{
+position:fixed;
+top:-20px;
+color:#ff4d94;
+animation:fall linear forwards;
+}
+
+/* hoa rơi */
+.flower{
+position:fixed;
+top:-20px;
+animation:fall linear forwards;
+}
+
+@keyframes fall{
+to{
+transform:translateY(100vh);
+opacity:0;
+}
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="message">
+chúc Hạnh Chi 8/3 vui vẻ ✨ <br>
+Hạnh Chi 💖
+</div>
+
+<div class="bigheart">💗</div>
+
+<script>
+
+/* tim rơi */
+
+function createHeart(){
+
+const heart=document.createElement("div");
+heart.classList.add("heart");
+heart.innerHTML="💗";
+
+heart.style.left=Math.random()*100+"vw";
+heart.style.fontSize=(Math.random()*25+20)+"px";
+heart.style.animationDuration=(Math.random()*3+2)+"s";
+
+document.body.appendChild(heart);
+
+setTimeout(()=>{
+heart.remove();
+},5000);
+
+}
+
+/* hoa rơi */
+
+function createFlower(){
+
+const flower=document.createElement("div");
+flower.classList.add("flower");
+flower.innerHTML="🌸";
+
+flower.style.left=Math.random()*100+"vw";
+flower.style.fontSize=(Math.random()*30+20)+"px";
+flower.style.animationDuration=(Math.random()*4+3)+"s";
+
+document.body.appendChild(flower);
+
+setTimeout(()=>{
+flower.remove();
+},6000);
+
+}
+
+setInterval(createHeart,300);
+setInterval(createFlower,500);
+
+</script>
+
+</body>
+</html>
+```
